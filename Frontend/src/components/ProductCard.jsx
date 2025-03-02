@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import { assets } from "../assets/assets";
 
 const ProductCard = () => {
   return (
@@ -7,7 +8,7 @@ const ProductCard = () => {
       <figure className="aspect-3/2 overflow-hidden rounded-t-lg">
         <img
           className="object-cover h-full w-full transform hover:scale-105 transition duration-500"
-          src=""
+          src={assets.Amazon}
           alt=""
         />
       </figure>
@@ -26,7 +27,7 @@ const ProductCard = () => {
             <p>15% off</p>
           </div>
           <div className="mt-3 flex gap-3">
-            <Link className="w-full block text-center py-2 rounded-lg bg-amber-200">
+            <Link to={`plan/id`} className="w-full block text-center py-2 rounded-lg bg-amber-200">
               See Details
             </Link>
             <Link className="w-full block text-center py-2 rounded-lg bg-amber-200">

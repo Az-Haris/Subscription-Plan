@@ -1,6 +1,11 @@
+import { assets } from "../assets/assets";
+
+
 const Banner = () => {
   return (
-    <header className=" bg-yellow-200 py-10">
+    <header style={{backgroundImage: `url(${assets.CinemaHall})`}} className="relative min-h-[500px] bg-cover h-full bg-center flex justify-center items-center">
+
+
       <div className="container mx-auto px-3 flex flex-col md:flex-row gap-10">
         <div>
           <h1 className="text-5xl font-bold">Best Subscription Plans</h1>
