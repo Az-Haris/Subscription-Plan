@@ -1,4 +1,4 @@
-import Whatsapp from './WhatsApp.png'
+import Whatsapp from './WhatsApp.gif'
 import CinemaHall from './cinema-hall.jpg'
 import Amazon from './amazon.jpg'
 import Bongo from './bongo.jpg'

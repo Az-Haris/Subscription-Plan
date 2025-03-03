@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
+import { assets } from "../assets/assets";
+import ScrollToTop from "../components/ScrollToTop";
 
 const PlanDetails = () => {
   const plan = {
@@ -38,43 +40,21 @@ const PlanDetails = () => {
 }
 
   return (
-    // <div className="flex justify-center items-center min-h-screen bg-gray-900 text-white p-4">
-    //   <div className="max-w-lg w-full bg-gray-800 rounded-2xl shadow-lg p-6">
-    //     <div className="flex items-center space-x-4">
-    //       <img src={plan.logo} alt={plan.name} className="w-16 h-16 rounded-lg" />
-    //       <h2 className="text-2xl font-bold">{plan.name}</h2>
-    //     </div>
 
-    //     <p className="mt-4 text-lg text-gray-300">{plan.description}</p>
-
-    //     <ul className="mt-4 space-y-2">
-    //       {plan.features.map((feature, index) => (
-    //         <li key={index} className="flex items-center space-x-2">
-    //           <span className="text-yellow-400">✔</span>
-    //           <span>{feature}</span>
-    //         </li>
-    //       ))}
-    //     </ul>
-
-    //     <div className="mt-6 text-xl font-semibold text-red-500">{plan.price}</div>
-
-    //     <button className="mt-4 w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl transition">
-    //       Subscribe Now
-    //     </button>
-    //   </div>
-    // </div>
-
-    <div className="flex flex-col md:flex-row gap-10 container mx-auto px-3 mt-0 md:mt-5">
-      <div>
-        <img className="w-full rounded-lg" src={plan.logo} alt="" />
+    <>
+    <ScrollToTop />
+    <div className="flex flex-col md:flex-row gap-5 md:gap-10 container mx-auto px-3 mt-0 md:mt-5">
+      <div className="flex-1">
+        <img className="w-full rounded-lg" src={assets.Amazon} alt="" />
       </div>
-      <div>
+      <div className="flex-1">
         <h2 className="text-3xl font-bold">{plan.name}</h2>
-        <p className="text-lg mt-3 mb-5">{plan.description}</p>
-        <p className="text-2xl font-bold mb-3">{plan.price}</p>
+        <p className="text-2xl font-semibold mt-5">{plan.price}</p>
+        <p className="text-lg my-5">{plan.description}</p>
         <button onClick={()=>redirectToWhatsApp()} className="px-6 py-2 bg-amber-300 rounded-lg cursor-pointer">Buy Now</button>
       </div>
     </div>
+    </>
   );
 };
 

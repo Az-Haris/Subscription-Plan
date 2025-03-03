@@ -1,8 +1,8 @@
 import React from 'react';
 import Banner from '../components/Banner';
 import SectionGap from '../utils/SectionGap';
-import Products from '../components/Products';
 import WhyChoose from '../components/WhyChoose';
+import Plans from '../components/Plans';
 
 const Home = () => {
     return (
@@ -10,7 +10,7 @@ const Home = () => {
             <Banner></Banner>
             <SectionGap></SectionGap>
             <main>
-                <Products></Products>
+                <Plans></Plans>
                 <SectionGap></SectionGap>
                 <WhyChoose></WhyChoose>
                 
