@@ -6,7 +6,7 @@ import { assets } from "../assets/assets";
 const Plans = () => {
   const plans = [
     {
-      productId: 1,
+      planId: 1,
       name: "Amazon Prime Video",
       image: assets.Amazon,
       price: 300,
@@ -21,7 +21,7 @@ const Plans = () => {
       ],
     },
     {
-      productId: 2,
+      planId: 2,
       name: "Ullu Premium Subscription",
       image: assets.Ullu,
       price: 280,
@@ -37,7 +37,7 @@ const Plans = () => {
       ],
     },
     {
-      productId: 3,
+      planId: 3,
       name: "Netflix Subscription",
       image: assets.Netflix,
       price: 250,
@@ -58,7 +58,7 @@ const Plans = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
         {plans.map((plan) => (
-          <ProductCard key={plan.productId} planDetails={plan}></ProductCard>
+          <ProductCard key={plan.planId} planDetails={plan}></ProductCard>
         ))}
       </div>
     </section>

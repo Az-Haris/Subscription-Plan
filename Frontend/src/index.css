@@ -16,3 +16,8 @@ body {
   color: blue;
   @apply dark:text-blue-400;
 }
+
+.btn-primary{
+  @apply px-8 py-2 bg-blue-500 text-white rounded-md;
+  @apply dark:bg-blue-400;
+}
