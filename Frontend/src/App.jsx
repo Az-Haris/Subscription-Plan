@@ -7,10 +7,10 @@ function App() {
   return (
     <div>
       <Navbar></Navbar>
-      <div className="py-[32px]"></div>
+      <div className="py-[26px] md:py-[32px]"></div>
       <Outlet></Outlet>
       <FooterSection></FooterSection>
-      <a href="https://wa.me/8801784410162?text=Hello!... Can I get more info?" target="_blank"><img className="w-16 md:w-20 fixed right-5 md:right-10 bottom-5 md:bottom-10 z-10" src={assets.Whatsapp} alt="" /></a>
+      <a href="https://wa.me/8801784410162?text=Hello!... Can I get more info?" target="_blank"><img className="w-16 fixed right-5 bottom-5 z-10" src={assets.WhatsappGif} alt="" /></a>
     </div>
   );
 }

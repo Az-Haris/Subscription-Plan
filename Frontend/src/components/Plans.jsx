@@ -1,64 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Title from "./Title";
-import ProductCard from "./PlanCard";
-import { assets } from "../assets/assets";
+import PlanCard from "./PlanCard";
 
 const Plans = () => {
-  const plans = [
-    {
-      planId: 1,
-      name: "Amazon Prime Video",
-      image: assets.Amazon,
-      price: 300,
-      regularPrice: 450,
-      description:
-        "Enjoy The Lord of the Rings: The Rings of Power and other Amazon Originals, popular movies, and hit TV shows — all available with your Prime membership.",
-      features: [
-        "Official",
-        "Subscribed Email & Password",
-        "1-12 Months",
-        "All Devices",
-      ],
-    },
-    {
-      planId: 2,
-      name: "Ullu Premium Subscription",
-      image: assets.Ullu,
-      price: 280,
-      regularPrice: 350,
-      description:
-        "Ullu Entertainment website. A plethora of all your favourite nail-biting Mysteries, Thrillers, Romance, Drama and Humour.",
-      features: [
-        "Official",
-        "2 Profile",
-        "Subscribed Email & Password",
-        "1-12 Months",
-        "All Devices",
-      ],
-    },
-    {
-      planId: 3,
-      name: "Netflix Subscription",
-      image: assets.Netflix,
-      price: 250,
-      regularPrice: 300,
-      description:
-        "Netflix Subscription at the cheapest Price From The Infinite Click. Unlock a world of entertainment with a Netflix subscription! Dive into an extensive library of movies, TV shows.",
-      features: [
-        "Official",
-        "Subscribed Email & Password",
-        "1-12 Months",
-        "All Devices",
-      ],
-    },
-  ];
+  const [plans, setPlans] = useState([]);
+
+  useEffect(()=>{
+    fetch("OttPlans.json")
+    .then(response => response.json())
+    .then(data => setPlans(data))
+  },[])
+
   return (
     <section className="container mx-auto px-3">
-      <Title title={"All Plans"} description={"Choose the best plans"}></Title>
+      <Title title={"Best OTT Plans"} description={"Choose the best plans"}></Title>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5">
         {plans.map((plan) => (
-          <ProductCard key={plan.planId} planDetails={plan}></ProductCard>
+          <PlanCard key={plan.planId} planDetails={plan}></PlanCard>
         ))}
       </div>
     </section>

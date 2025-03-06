@@ -1,0 +1,48 @@
+[
+    {
+      "planId": 1,
+      "name": "Amazon Prime Video",
+      "image": "https://i.ibb.co.com/YFyPqcFt/amazon.jpg",
+      "price": 300,
+      "regularPrice": 450,
+      "description":
+        "Enjoy The Lord of the Rings: The Rings of Power and other Amazon Originals, popular movies, and hit TV shows — all available with your Prime membership.",
+      "features": [
+        "Official",
+        "Subscribed Email & Password",
+        "1-12 Months",
+        "All Devices"
+      ]
+    },
+    {
+      "planId": 2,
+      "name": "Ullu Premium Subscription",
+      "image": "https://i.ibb.co.com/842gYnY1/ullu.jpg",
+      "price": 280,
+      "regularPrice": 350,
+      "description":
+        "Ullu Entertainment website. A plethora of all your favourite nail-biting Mysteries, Thrillers, Romance, Drama and Humour.",
+      "features": [
+        "Official",
+        "2 Profile",
+        "Subscribed Email & Password",
+        "1-12 Months",
+        "All Devices"
+      ]
+    },
+    {
+      "planId": 3,
+      "name": "Netflix Subscription",
+      "image": "https://i.ibb.co.com/jkw1RR0M/netflix.jpg",
+      "price": 250,
+      "regularPrice": 300,
+      "description":
+        "Netflix Subscription at the cheapest Price From The Infinite Click. Unlock a world of entertainment with a Netflix subscription! Dive into an extensive library of movies, TV shows.",
+      "features": [
+        "Official",
+        "Subscribed Email & Password",
+        "1-12 Months",
+        "All Devices"
+      ]
+    }
+  ]

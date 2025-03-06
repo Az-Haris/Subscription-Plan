@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
 import ScrollToTop from "../components/ScrollToTop";
-import { CiSquareCheck } from "react-icons/ci";
+import { FaRegSquareCheck } from "react-icons/fa6";
 
 const PlanDetails = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const planDetails = location.state;
-  console.log(location.state);
 
   useEffect(() => {
     if (!planDetails) {
@@ -46,7 +45,7 @@ const PlanDetails = () => {
   return (
     <>
       <ScrollToTop />
-      <div className="flex flex-col md:flex-row gap-5 md:gap-10 container mx-auto px-3 mt-0 md:mt-8">
+      <div className="flex flex-col md:flex-row gap-5 md:gap-10 container mx-auto px-3 mt-5 md:mt-8">
         <div className="flex-1">
           <img className="w-full rounded-lg" src={image} alt="" />
         </div>
@@ -54,12 +53,12 @@ const PlanDetails = () => {
           <h2 className="text-3xl font-bold">{name}</h2>
           <p className="text-2xl font-semibold mt-5">৳ {price} /month</p>
           <p className="text-xl my-5">{description}</p>
-          <ul className="mb-5 text-lg">
-            {features.map((feature) => (
-              <>
-                <CiSquareCheck />
+          <ul className="mb-5 text-lg ml-5">
+            {features.map((feature, idx) => (
+              <p key={idx} className="flex items-center gap-2 mb-2">
+                <FaRegSquareCheck className="text-green-900"/>
                 <li>{feature}</li>
-              </>
+              </p>
             ))}
           </ul>
           <button

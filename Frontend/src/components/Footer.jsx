@@ -11,9 +11,9 @@ const FooterSection = () => {
           <div>
             <Logo></Logo>
             <div className="text-left mt-2 text-gray-500 dark:text-gray-300">
-              <p>23/3, Hospital Road, Nalchity, Jahlokati.</p>
-              <p>mdalimuzzaman437@gmail.com</p>
-              <p>+880 1405-742311</p>
+              <p>We support all over the world with best service.</p>
+              <a className="hover:text-blue-500 block" href="https://wa.me/8801784410162?text=Hello!... Can I get more info?" target="_blank">info@subscription.com</a>
+              <a className="hover:text-blue-500" href="https://wa.me/8801784410162?text=Hello!... Can I get more info?" target="_blank">+880 17844-10162</a>
             </div>
           </div>
           <div>
@@ -57,30 +57,10 @@ const FooterSection = () => {
                   alt="Facebook"
                 />
               </a>
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/in/alimuzzaman-haris/"
-              >
-                <img
-                  className="w-9 transform hover:scale-110 transition duration-300"
-                  src={assets.LinkedIn}
-                  alt="LinkedIn"
-                />
-              </a>
-              <a
-                target="_blank"
-                href="https://www.instagram.com/alimuzzaman.haris/"
-              >
-                <img
-                  className="w-9 transform hover:scale-110 transition duration-300"
-                  src={assets.Instagram}
-                  alt="Instagram"
-                />
-              </a>
               <a target="_blank" href="https://www.youtube.com/@az-industries">
                 <img
                   className="w-9 transform hover:scale-110 transition duration-300"
-                  src={assets.YouTube}
+                  src={assets.Youtube}
                   alt="YouTube"
                 />
               </a>
