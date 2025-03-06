@@ -1,10 +1,8 @@
-import { FaDumbbell, FaUsers, FaStar } from "react-icons/fa";
-import { useNavigate } from "react-router";
+
 import ScrollToTop from "../components/ScrollToTop";
 import WhyChoose from "../components/WhyChoose";
 
 const About = () => {
-  const navigate = useNavigate();
   return (
     <div className=" text-gray-800">
       <ScrollToTop />
