@@ -1,7 +1,21 @@
 import React from "react";
 import ScrollToTop from "../components/ScrollToTop";
+import useAxiosPublic from "../hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
 const BrilliantRecharge = () => {
+  const axiosPublic = useAxiosPublic();
+
+  const { data: rechargeHistory = [] } = useQuery({
+    queryKey: ["rechargeHistory"],
+    queryFn: async () => {
+      const response = await axiosPublic.get("/getRecharge");
+      return response.data;
+    },
+  });
+
+
+
   const handleRecharge = (e) => {
     e.preventDefault();
     const number = e.target.number.value;
@@ -18,6 +32,8 @@ const BrilliantRecharge = () => {
       Amount: amount,
       PaymentMethod: paymentMethod,
       Last4Digit: last4Digit,
+      Status: "Success",
+      Date: new Date().toLocaleString(),
     };
 
     // Construct message
@@ -31,6 +47,10 @@ const BrilliantRecharge = () => {
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message,
     )}`;
+
+    axiosPublic.post("/saveRecharge", RechargeDetails).then((res) => {
+      console.log(res.data);
+    });
 
     // Open WhatsApp in a new tab
     window.open(whatsappURL, "_blank");
@@ -122,9 +142,9 @@ const BrilliantRecharge = () => {
                 {" "}
                 <option value="">Payment Method</option>
                 <hr />
-                  <option value="bKash">bKash</option>
-                  <option value="Rocket">Rocket</option>
-                  <option value="Nagad">Nagad</option>
+                <option value="bKash">bKash</option>
+                <option value="Rocket">Rocket</option>
+                <option value="Nagad">Nagad</option>
               </select>
             </div>
             <div className="flex flex-col gap-2 mt-5">
@@ -162,13 +182,20 @@ const BrilliantRecharge = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className="pl-3 py-1 border border-gray-400">017******62</td>
-              <td className="pl-3 py-1 border border-gray-400">৳100</td>
-              <td className="pl-3 py-1 border border-gray-400 bg-green-200">
-                Success
-              </td>
-            </tr>
+            {
+              // Loop through the recharge history
+              rechargeHistory.map((recharge) => (
+                <tr key={recharge._id}>
+                  <td className="pl-3 py-1 border border-gray-400">
+                    {recharge.Number}
+                  </td>
+                  <td className="pl-3 py-1 border border-gray-400">৳ {recharge.Amount}</td>
+                  <td className={`pl-3 py-1 border border-gray-400 ${recharge.Status === "Success" ? "bg-green-200" : "bg-red-200"}`}>
+                    {recharge.Status}
+                  </td>
+                </tr>
+              ))
+            }
           </tbody>
         </table>
       </section>
