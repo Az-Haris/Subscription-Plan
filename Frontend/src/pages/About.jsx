@@ -1,5 +1,5 @@
-
 import ScrollToTop from "../components/ScrollToTop";
+import Button from "../components/ui/Button";
 import WhyChoose from "../components/WhyChoose";
 
 const About = () => {
@@ -14,6 +14,23 @@ const About = () => {
           guidance and an inspiring community.
         </p>
       </section>
+
+      {/* About Us */}
+      <Button className="" variant="" size="sm">
+        Click Button
+      </Button>
+
+      <Button variant="outline" size="lg" className="rounded-full">
+        Outline Button
+      </Button>
+
+      <Button variant="ghost" size="sm">
+        Ghost Button
+      </Button>
+
+      <Button variant="link">
+        Link Button
+      </Button>
 
       {/* Mission & Vision */}
       <section className="container mx-auto px-3 py-16 grid md:grid-cols-2 gap-12">
@@ -49,7 +66,10 @@ const About = () => {
         <h2 className="text-3xl font-bold mb-8 text-gray-800 dark:text-gray-200">
           Ready to Start Your Subscription?
         </h2>
-        <a href="https://wa.me/8801784410162?text=Hello!... Can I get more info?" className="px-10 py-3 bg-blue-600 text-white rounded-full text-lg font-semibold cursor-pointer hover:bg-blue-700 transition-colors">
+        <a
+          href="https://wa.me/8801784410162?text=Hello!... Can I get more info?"
+          className="px-10 py-3 bg-blue-600 text-white rounded-full text-lg font-semibold cursor-pointer hover:bg-blue-700 transition-colors"
+        >
           Subscribe Now
         </a>
       </section>

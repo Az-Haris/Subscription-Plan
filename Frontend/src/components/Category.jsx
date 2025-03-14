@@ -26,7 +26,7 @@ const Category = () => {
       {categories.map((category) => (
         <Link key={category.id}
           to={category.link}
-          className="bg-white border border-gray-400 dark:bg-gray-800 p-2 md:p-5 rounded-lg hover:shadow-xl"
+          className="bg-background dark:bg-background-dark border border-accent dark:border-accent-dark p-2 md:p-5 rounded-lg hover:shadow-xl"
         >
           <img src={category.image} className="w-16 md:w-24 rounded-full" alt="" />
           <h3 className="md:text-xl font-semibold dark:text-gray-300 mt-3">

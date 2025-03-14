@@ -2,11 +2,12 @@ import React from "react";
 import ScrollToTop from "../components/ScrollToTop";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
+import { FaRegCopy } from "react-icons/fa";
 
 const BrilliantRecharge = () => {
   const axiosPublic = useAxiosPublic();
 
-  const { data: rechargeHistory = [] } = useQuery({
+  const { data: rechargeHistory = [], refetch } = useQuery({
     queryKey: ["rechargeHistory"],
     queryFn: async () => {
       const response = await axiosPublic.get("/getRecharge");
@@ -48,8 +49,8 @@ const BrilliantRecharge = () => {
       message,
     )}`;
 
-    axiosPublic.post("/saveRecharge", RechargeDetails).then((res) => {
-      console.log(res.data);
+    axiosPublic.post("/saveRecharge", RechargeDetails).then(() => {
+      refetch()
     });
 
     // Open WhatsApp in a new tab
@@ -66,10 +67,10 @@ const BrilliantRecharge = () => {
     const number = "01784410162";
     navigator.clipboard.writeText(number);
 
-    document.getElementById("paymentNumber").classList.add("bg-green-200");
+    document.getElementById("paymentNumber").classList.add("bg-green-200", "dark:bg-green-800");
   };
   return (
-    <div className=" text-gray-800">
+    <div className=" text-text dark:text-text-dark">
       <ScrollToTop></ScrollToTop>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white py-8 md:py-16 px-3 text-center">
@@ -81,10 +82,10 @@ const BrilliantRecharge = () => {
       </section>
 
       {/* Recharge Form */}
-      <section>
+      <section className="px-3">
         <form
           onSubmit={handleRecharge}
-          className="max-w-lg mx-auto mt-5 md:mt-10 border border-gray-400 rounded-lg p-5 shadow-xl"
+          className="max-w-lg mx-auto mt-5 md:mt-10 border border-gray-400 rounded-lg p-3 md:p-5 shadow-xl"
         >
           <div className="flex flex-col gap-2">
             <label className="font-semibold">Brilliant or Mobile Number</label>
@@ -113,7 +114,7 @@ const BrilliantRecharge = () => {
             <label className="font-semibold">Send Money Number</label>
             <div className="flex gap-2 items-center">
               <input
-                className="flex-1 border border-gray-400 rounded-lg text-lg px-3 py-2"
+                className="w-full flex-1 border border-gray-400 rounded-lg text-lg px-3 py-2"
                 type="text"
                 id="paymentNumber"
                 value="01784410162"
@@ -124,9 +125,9 @@ const BrilliantRecharge = () => {
               <button
                 onClick={() => copyNumber()}
                 type="button"
-                className="cursor-pointer py-2 bg-amber-300 px-4 rounded-lg"
+                className="flex items-center gap-2 cursor-pointer py-3 bg-accent dark:bg-accent-dark text-black px-4 rounded-lg"
               >
-                Copy Number
+                <FaRegCopy /> <span>Copy</span>
               </button>
             </div>
           </div>
@@ -135,22 +136,21 @@ const BrilliantRecharge = () => {
             <div className="flex-1 flex flex-col gap-2 mt-5">
               <label className="font-semibold">Payment Method</label>
               <select
-                className="border border-gray-400 rounded-lg text-lg px-3 py-2"
+                className="dark:bg-gray-800 w-full border border-gray-400 rounded-lg text-lg px-3 py-2"
                 name="paymentMethod"
                 required
               >
                 {" "}
-                <option value="">Payment Method</option>
-                <hr />
+                <option value="" className="text-secondary dark:text-secondary-dark">bKash, Rocket, Nagad</option>
                 <option value="bKash">bKash</option>
                 <option value="Rocket">Rocket</option>
                 <option value="Nagad">Nagad</option>
               </select>
             </div>
-            <div className="flex flex-col gap-2 mt-5">
+            <div className="flex flex-1 flex-col gap-2 mt-5">
               <label className="font-semibold">Last 4 Digit</label>
               <input
-                className="border border-gray-400 rounded-lg text-lg px-3 py-2"
+                className="w-full border border-gray-400 rounded-lg text-lg px-3 py-2"
                 type="tel"
                 name="last4Digit"
                 pattern="[0-9]{4}" // 4 digit number
@@ -161,7 +161,7 @@ const BrilliantRecharge = () => {
           </div>
           <button
             type="submit"
-            className="px-10 py-2 w-full bg-amber-400 rounded-lg mt-5 cursor-pointer mx-auto block"
+            className="px-10 py-2 w-full bg-accent dark:bg-accent-dark text-black rounded-lg mt-5 cursor-pointer mx-auto block"
           >
             Recharge
           </button>
@@ -169,7 +169,7 @@ const BrilliantRecharge = () => {
       </section>
 
       {/* History */}
-      <section className="container mx-auto px-3 mt-5 md:mt-10">
+      <section className="container mx-auto px-3 mt-10 md:mt-20">
         <h2 className="text-2xl font-bold text-center">
           Latest Recharge History
         </h2>
@@ -190,7 +190,7 @@ const BrilliantRecharge = () => {
                     {recharge.Number}
                   </td>
                   <td className="pl-3 py-1 border border-gray-400">৳ {recharge.Amount}</td>
-                  <td className={`pl-3 py-1 border border-gray-400 ${recharge.Status === "Success" ? "bg-green-200" : "bg-red-200"}`}>
+                  <td className={`pl-3 py-1 border border-gray-400 ${recharge.Status === "Success" ? "bg-green-200 dark:bg-green-800" : "bg-red-200 dark:bg-red-800"}`}>
                     {recharge.Status}
                   </td>
                 </tr>

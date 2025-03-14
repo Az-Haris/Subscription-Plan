@@ -51,19 +51,19 @@ const PlanDetails = () => {
         </div>
         <div className="flex-1">
           <h2 className="text-3xl font-bold">{name}</h2>
-          <p className="text-2xl font-semibold mt-5">৳ {price} /month</p>
+          <p className="text-2xl text-primary dark:text-primary-dark font-semibold mt-5">৳ {price} /month</p>
           <p className="text-xl my-5">{description}</p>
           <ul className="mb-5 text-lg ml-5">
             {features.map((feature, idx) => (
               <p key={idx} className="flex items-center gap-2 mb-2">
-                <FaRegSquareCheck className="text-green-900"/>
+                <FaRegSquareCheck className="text-accent"/>
                 <li>{feature}</li>
               </p>
             ))}
           </ul>
           <button
             onClick={() => redirectToWhatsApp()}
-            className="px-6 py-2 bg-amber-300 rounded-lg cursor-pointer"
+            className="px-6 py-2 bg-accent text-black rounded-lg cursor-pointer"
           >
             Buy Now
           </button>

@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+@theme{
+  --color-primary: #007BFF;
+  --color-secondary: #6C757D;
+  --color-accent: #FF9800;
+  --color-text: #1C1C1C;
+  --color-background: #F8F9FA;
+
+  --color-primary-dark: #1E90FF;
+  --color-secondary-dark: #37474F;
+  --color-accent-dark: #FFB74D;
+  --color-text-dark: #E0E0E0;
+  --color-background-dark: #121212;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 
@@ -9,12 +23,10 @@ body {
 
 .navbar a.active hr {
   display: block;
-  background-color: blue;
-  @apply dark:bg-blue-400;
+  @apply bg-primary dark:bg-primary-dark;
 }
 .navbar a.active {
-  color: blue;
-  @apply dark:text-blue-400;
+  @apply text-primary dark:text-primary-dark;
 }
 
 .btn-primary{

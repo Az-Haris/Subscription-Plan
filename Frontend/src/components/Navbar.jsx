@@ -9,7 +9,7 @@ import { RxCross1 } from "react-icons/rx";
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
   return (
-    <div className="navbar py-2 md:py-3 font-medium  shadow-xl fixed top-0 w-full z-10 bg-gray-200 dark:bg-gray-800">
+    <div className="navbar py-2 md:py-3 font-medium  shadow-xl fixed top-0 w-full z-10 bg-background dark:bg-background-dark">
       <div className="container mx-auto px-3 flex items-center justify-between">
         <Logo></Logo>
 
